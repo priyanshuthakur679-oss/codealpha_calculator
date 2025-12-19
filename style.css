@@ -1,0 +1,159 @@
+/* Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Animated background */
+body, html {
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  background: linear-gradient(270deg, #ff9a9e, #fad0c4, #fad0c4, #ff9a9e);
+  background-size: 80% 80%;
+  animation: BackgroundAnimation 20s ease infinite;
+  background-image: url(calculatorbg.jpeg);
+}
+
+/* @keyframes BackgroundAnimation {
+  0% {background-position:0% 50%;}
+  50% {background-position:100% 50%;}
+  100% {background-position:0% 50%;}
+} */
+
+.title {
+  color: #2196f3;
+  font-size: 40px;
+  text-align: center;
+  margin: 50px 0 20px 0;
+  font-family: Arial;
+  animation: fadeSlide 2s ease-out, colorChange 4s infinite alternate;
+}
+
+/* Slide + Fade animation */
+@keyframes fadeSlide {
+  0% {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Color changing animation */
+@keyframes colorChange {
+  0% {
+    color: #2196f3;
+  }
+  50% {
+    color: #e91e63;
+  }
+  100% {
+    color: #4caf50;
+  }
+}
+
+/* Background layer */
+.animated-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: inherit;
+  z-index: -1;
+  filter: brightness(0.85);
+}
+
+/* Calculator container */
+.calculator {
+  width: 320px;
+  background: rgba(43, 32, 32, 0.85);
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgba(73, 16, 16, 0.25);
+  margin: 60px auto;
+  padding: 20px;
+  user-select: none;
+}
+
+/* Calculator display */
+.display {
+  height: 60px;
+  background-color: #222;
+  color: #fff;
+  text-align: right;
+  padding: 10px 20px;
+  font-size: 2.2rem;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+/* Buttons grid */
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+}
+
+/* Buttons general */
+.btn {
+  background-color: #5d6dff;
+  color: white;
+  font-size: 1.4rem;
+  border: none;
+  border-radius: 10px;
+  padding: 18px 0;
+  cursor: pointer;
+  box-shadow: 0 4px #4958c8;
+  transition: background-color 0.3s, transform 0.1s, box-shadow 0.1s;
+  user-select: none;
+}
+
+.btn:hover {
+  background-color: #7d8bff;
+}
+
+.btn:active {
+  transform: scale(0.95);
+  box-shadow: 0 2px #4958c8;
+}
+
+/* Equal button bigger */
+.equal {
+  grid-row: span 2;
+  background-color: #ff6363;
+  box-shadow: 0 4px #cc4d4d;
+}
+
+.equal:hover {
+  background-color: #ff7a7a;
+}
+
+.equal:active {
+  box-shadow: 0 2px #e8e2e2;
+}
+
+/* Zero button wide */
+.zero {
+  grid-column: span 2;
+}
+
+/* Responsive */
+@media (max-width: 400px) {
+  .calculator {
+    width: 90vw;
+  }
+  .display {
+    font-size: 1.6rem;
+  }
+  .btn {
+    font-size: 1.1rem;
+    padding: 14px 0;
+  }
+}
